@@ -56,7 +56,13 @@ const  Domestic = () => {
       ],
     };
     return (
-      <div className="my-14 mx-auto w-9/12">
+      <div className="my-14 mx-auto w-9/12 bg-white p-8 shadow-md shadow-[#9c9c9c] rounded">
+        <div className="row">
+          <div className="col-8 flex items-center">
+            <h1 className="text-[#333] text-4xl mb-4">Domestic and foreign books in stock</h1>
+          </div>
+        </div>
+
         <Slider {...settings}>
           {booksData.map((item) => (
             <div className="border-solid border-2 border-white bg-black rounded-lg overflow-hidden h-96 text-white">
@@ -66,10 +72,7 @@ const  Domestic = () => {
                   src={item.linkImg}
                   alt={item.title}
                 />
-                <h1 className="  text-xl font-bold my-3 mx-5">
-                  {" "}
-                  {item.title}
-                </h1>
+                <h1 className="  text-xl font-bold my-3 mx-5"> {item.title}</h1>
               </div>
               <div className=" my-3 mx-5">
                 <h3 className="text-lg font-semibold"> {item.author} </h3>
