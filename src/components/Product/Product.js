@@ -5,7 +5,7 @@ const Product = ({product}) => {
     return (
       <div className="w-full md:w-1/2 xl:w-1/3 px-3  transition-all">
           <div className='bg-black rounded-lg overflow-hidden mb-10'>
-            <img src={img} alt={name} className="w-full max-h-96 h-full hover:scale-110 transition-all object-cover" />
+            <img src={img} alt={name} className="w-64 max-h-96 h-64 mx-auto hover:scale-110 transition-all object-cover" />
             <div className='p-8 sm:p-9 md:p-7 xl:p-9'>
                 <h2 className='font-semibold text-white text-xl sm:text-[22px] md:text-xl 
                                 lg:text-[22px] xl:text-xl 2xl:text-[22px] mb-4 block'> {name}</h2>

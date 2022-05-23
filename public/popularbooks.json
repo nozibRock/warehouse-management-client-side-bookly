@@ -1,0 +1,100 @@
+[
+    {
+        "id": 1,
+        "name": "Beautiful World, Where Are You",
+        "author": "Sally Rooney",
+        "category": "Fiction",
+        "img": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1618329605l/56597885.jpg"
+    },
+    {
+        "id": 2,
+        "name": "Dial A for Aunties",
+        "author": "Jesse Q. Sutanto",
+        "category": "Fiction",
+        "img": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1601307658l/53310061.jpg"
+    },
+    {
+        "id": 3,
+        "name": "Cloud Cuckoo Land",
+        "author": "Anthony Doerr",
+        "category": "Fiction",
+        "img": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1618589128l/56783258._SY475_.jpg"
+    },
+    {
+        "id": 4,
+        "name": "Once There Were Wolves",
+        "author": "Charlotte McConaghy",
+        "category": "Fiction",
+        "img": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1606002779l/54860573.jpg"
+    },
+    {
+        "id": 5,
+        "name": "The Last Thing He Told Me",
+        "author": "Laura Dave",
+        "category": "Mystery & Thriller",
+        "img": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1628623381l/58744977._SY475_.jpg"
+    },
+    {
+        "id": 6,
+        "name": "The Maidens",
+        "author": "Alex Michaelides",
+        "category": "Mystery & Thriller",
+        "img": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1608557750l/45300567.jpg"
+    },
+    {
+        "id": 7,
+        "name": "Billy Summers",
+        "author": "Stephen King",
+        "category": "Mystery & Thriller",
+        "img": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1618151020l/56852407.jpg"
+    },
+    {
+        "id": 8,
+        "name": "The Push",
+        "author": "Ashley Audrain",
+        "category": "Mystery & Thriller",
+        "img": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1609854219l/52476830._SY475_.jpg"
+    },
+    {
+        "id": 9,
+        "name": "Malibu Rising",
+        "author": " Taylor Jenkins Reid",
+        "category": "Historical Fiction",
+        "img": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1628625865l/58745185._SY475_.jpg"
+    },
+    {
+        "id": 10,
+        "name": "The Four Winds",
+        "author": " Kristin Hannah",
+        "category": "Historical Fiction",
+        "img": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1620988384l/57175097._SY475_.jpg"
+    },
+    {
+        "id": 11,
+        "name": "The Lost Apothecary",
+        "author": "Sarah Penner",
+        "category": "Historical Fiction",
+        "img": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1593013000l/53288434.jpg"
+    },
+    {
+        "id": 12,
+        "name": "A ​Court of Silver Flames",
+        "author": "Sarah J. Maas",
+        "category": "Fantasy",
+        "img": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1602570691l/53138095.jpg"
+    },
+    {
+        "id": 13,
+        "name": "Under the Whispering Door",
+        "author": "T.J. Klune",
+        "category": "Fantasy",
+        "img": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1652374208l/53205888._SY475_.jpg"
+    },
+    {
+        "id": 14,
+        "name": "The ​Crown of Gilded Bones",
+        "author": "Jennifer L. Armentrout",
+        "category": "Fantasy",
+        "img": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1606759553l/55240343._SY475_.jpg"
+    }
+]
