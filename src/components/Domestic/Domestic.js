@@ -65,7 +65,7 @@ const  Domestic = () => {
 
         <Slider {...settings}>
           {booksData.map((item) => (
-            <div className="border-solid border-2 border-white bg-black rounded-lg overflow-hidden h-96 text-white">
+            <div className="border-solid border-2 border-white bg-black rounded-lg overflow-hidden h-96 text-white" key={item.id}>
               <div>
                 <img
                   className="mx-auto w-100 h-100 object-cover "
