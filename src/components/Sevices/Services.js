@@ -60,7 +60,7 @@ const Services = () => {
                 </div>
               </div>
             </div>
-            <div className="flex flex-wrap -mx-4">
+            <div className="flex flex-wrap -mx-4 animate__animated animate__fadeInUp">
               {allServices.map((service) => (
                 <div
                   className="w-full md:w-1/2 lg:w-1/3 px-4  hover:scale-105 transition-all"

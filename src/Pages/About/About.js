@@ -19,7 +19,6 @@ const About = () => {
                         </div>
                         <div className='w-6 h-6 absolute top-1/2 -mt-3 rounded-full bg-blue-500 shadow animate-bounce hover:animate-ping'></div>
                     </div>
-                    
                     <div className='animate__animated animate__fadeInRight col-start-6 col-end-10 p-4 rounded-xl my-4 mr-auto shadow-md'>
                         <p>I am passionate about building excellent software that improves
                         the lives of those around me. I specialize in creating software
