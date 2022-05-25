@@ -17,7 +17,7 @@ const Products = () => {
             <div className="flex flex-wrap -mx-4">
               <div className="w-full px-4">
                 <div className="text-center mx-auto mb-12 lg:mb-20 max-w-[510px]">
-                  <h2>Products: {products.length} </h2>
+                  {/* <h2>Products: {products.length} </h2> */}
                   <span className="font-semibold text-lg text-sky-800 mb-2 block">
                     Recently Sold Products
                   </span>
