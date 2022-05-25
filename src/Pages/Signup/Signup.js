@@ -13,6 +13,11 @@ const Signup = () => {
     }
     const handleRegister = event => {
         event.preventDefault();
+        // console.log(event.target.email.value);
+        // console.log(event.target.password.value);
+        const name = event.target.name.value;
+        const email = event.target.email.value;
+        const password = event.target.password.value;
     }
     return (
         <div className='bg-black'>
@@ -27,7 +32,7 @@ const Signup = () => {
                         <span className='text-gray-500 font-normal'>OR</span>
                         <span className='h-px w-16 bg-gray-400'></span>
                     </div>
-                    <form action="" className='mt-8 space-y-6'>
+                    <form onSubmit={handleRegister} action="" className='mt-8 space-y-6'>
                         <input type="hidden" name='remember' value='true' />
                         <div className='relative'>
                             <label htmlFor="name" className='text-sm font-bold text-gray-700 tracking-wide'>Your Name</label>
