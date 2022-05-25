@@ -1,11 +1,12 @@
 import React, { useRef, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { AiFillEyeInvisible, AiFillEye } from "react-icons/ai";
 import './Login.css'
 
 const Login = () => {
     const refEmail = useRef('');
     const refPass = useRef('');
+    const navigate = useNavigate();
     const [state, setState] = useState(false);
     const toggleBtn = () => {
         setState(prevState => !prevState);
@@ -17,6 +18,9 @@ const Login = () => {
         const password = refPass.current.value;
         console.log(email, password);
     }
+    const navigateRegister = (event) => {
+      navigate("/register");
+    };
     return (
         <div className='bg-black'>
             <div className='flex justify-center items-center py-8 sm:px-6 lg:px-8'>
@@ -72,7 +76,7 @@ const Login = () => {
                         </div>
                         <p className='flex flex-col items-center justify-center mt-10 text-center text-md text-gray-500'>
                             <span>Don't have an account?</span>
-                            <Link className='text-indigo-500 hover:text-indigo-500no-underline hover:underline cursor-pointer transition ease-in duration-300' to={'/signup'}>Sign up</Link>
+                            <Link className='text-indigo-500 hover:text-indigo-500no-underline hover:underline cursor-pointer transition ease-in duration-300' to={'/signup'} onClick={navigateRegister}>Sign up</Link>
                         </p>
                     </form>
                 </div>

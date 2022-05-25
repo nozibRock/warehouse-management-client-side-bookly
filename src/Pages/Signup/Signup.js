@@ -1,12 +1,19 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { AiFillEyeInvisible, AiFillEye } from "react-icons/ai";
 
 const Signup = () => {
     const [state, setState] = useState(false);
+    const navigate = useNavigate();
     const toggleBtn = () => {
       setState((prevState) => !prevState);
     };
+    const navigateLogin = () => {
+        navigate('/login')
+    }
+    const handleRegister = event => {
+        event.preventDefault();
+    }
     return (
         <div className='bg-black'>
             <div className='flex justify-center items-center py-8 sm:px-6 lg:px-8'>
@@ -23,12 +30,16 @@ const Signup = () => {
                     <form action="" className='mt-8 space-y-6'>
                         <input type="hidden" name='remember' value='true' />
                         <div className='relative'>
+                            <label htmlFor="name" className='text-sm font-bold text-gray-700 tracking-wide'>Your Name</label>
+                            <input type="text" name='name' placeholder='Your Name' className='w-full text-base py-2 px-3 rounded border-b border-gray-300 focus:outline-none focus:border-indigo-500' />
+                        </div>
+                        <div className='mt-8 content-center relative'>
                             <label htmlFor="" className='text-sm font-bold text-gray-700 tracking-wide'>Email</label>
-                            <input type="email" name="" id="" className='w-full text-base py-2 px-3 rounded border-b border-gray-300 focus:outline-none focus:border-indigo-500' placeholder='mail@gmail.com' required />
+                            <input type="email" name="email" id="" className='w-full text-base py-2 px-3 rounded border-b border-gray-300 focus:outline-none focus:border-indigo-500' placeholder='mail@gmail.com' required />
                         </div>
                         <div className='mt-8 content-center relative'>
                             <label htmlFor="" className='text-sm font-bold text-gray-700 tracking-wide'>Password</label>
-                            <input type="password" name="" id="" className='w-full content-center text-base py-2 px-3 rounded border-b border-gray-300 focus:outline-none focus:border-indigo-500' placeholder='Enter your password' required />
+                            <input type="password" name="password" id="" className='w-full content-center text-base py-2 px-3 rounded border-b border-gray-300 focus:outline-none focus:border-indigo-500' placeholder='Enter your password' required />
                             <button className='absolute text-xl top-8 right-3 cursor-pointer' onClick={toggleBtn}>{state ? <AiFillEyeInvisible /> : <AiFillEye />}</button>
                         </div>
                         <div className='mt-8 content-center relative'>
@@ -47,7 +58,7 @@ const Signup = () => {
                         </div>
                         <p className='flex flex-col items-center justify-center mt-10 text-center text-md text-gray-500'>
                             <span>Already have an account?</span>
-                            <Link className='text-indigo-500 hover:text-indigo-500no-underline hover:underline cursor-pointer transition ease-in duration-300' to={'/login'}>Login</Link>
+                            <Link className='text-indigo-500 hover:text-indigo-500no-underline hover:underline cursor-pointer transition ease-in duration-300' to={'/login'} onClick={navigateLogin}>Login</Link>
                         </p>
                     </form>
                 </div>
