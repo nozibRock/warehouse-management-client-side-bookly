@@ -1,14 +1,22 @@
-import React, { useState } from 'react';
+import React, { useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { AiFillEyeInvisible, AiFillEye } from "react-icons/ai";
 import './Login.css'
 
 const Login = () => {
+    const refEmail = useRef('');
+    const refPass = useRef('');
     const [state, setState] = useState(false);
     const toggleBtn = () => {
         setState(prevState => !prevState);
     }
     
+    const handleSubmit = event => {
+        event.preventDefault();
+        const email = refEmail.current.value;
+        const password = refPass.current.value;
+        console.log(email, password);
+    }
     return (
         <div className='bg-black'>
             <div className='flex justify-center items-center py-8 sm:px-6 lg:px-8'>
@@ -39,15 +47,15 @@ const Login = () => {
                         <span className='text-gray-500 font-normal'>OR</span>
                         <span className='h-px w-16 bg-gray-400'></span>
                     </div>
-                    <form action="" className='mt-8 space-y-6'>
-                        {/* <input type="hidden" name='remember' value='true' /> */}
+                    <form onSubmit={handleSubmit} action="" className='mt-8 space-y-6'>
+                        <input type="hidden" name='remember' value='true' />
                         <div className='relative'>
                             <label className='text-sm font-bold text-gray-700 tracking-wide'>Email</label>
-                            <input type="email" name="" id="" className='w-full text-base py-2 px-3 rounded border-b border-gray-300 focus:outline-none focus:border-indigo-500' placeholder='mail@gmail.com' required />
+                            <input ref={refEmail} type="email" name="" id="" className='w-full text-base py-2 px-3 rounded border-b border-gray-300 focus:outline-none focus:border-indigo-500' placeholder='mail@gmail.com' required />
                         </div>
                         <div className='mt-8 content-center relative'>
                             <label className='text-sm font-bold text-gray-700 tracking-wide'>Password</label>
-                            <input type={state ? "text" : "password"} className='w-full content-center text-base py-2 px-3 rounded border-b border-gray-300 focus:outline-none focus:border-indigo-500' placeholder='Enter your password' required />
+                            <input ref={refPass} type={state ? "text" : "password"} className='w-full content-center text-base py-2 px-3 rounded border-b border-gray-300 focus:outline-none focus:border-indigo-500' placeholder='Enter your password' required />
                             <button className='absolute text-xl top-8 right-3 cursor-pointer' onClick={toggleBtn}>{state ? <AiFillEyeInvisible /> : <AiFillEye />}</button>
                         </div>
                         <div className='flex items-center justify-between'>
