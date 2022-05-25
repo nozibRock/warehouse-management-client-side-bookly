@@ -2,21 +2,29 @@ import React, { useRef, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { AiFillEyeInvisible, AiFillEye } from "react-icons/ai";
 import './Login.css'
+import { useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
+import auth from '../../firebase.init';
 
 const Login = () => {
     const refEmail = useRef('');
     const refPass = useRef('');
     const navigate = useNavigate();
+    const [signInWithEmailAndPassword, user, loading, error] = useSignInWithEmailAndPassword(auth);
     const [state, setState] = useState(false);
     const toggleBtn = () => {
         setState(prevState => !prevState);
+    }
+
+    if (user) {
+        navigate('/')
     }
     
     const handleSubmit = event => {
         event.preventDefault();
         const email = refEmail.current.value;
         const password = refPass.current.value;
-        console.log(email, password);
+        // console.log(email, password);
+        signInWithEmailAndPassword(email, password);
     }
     const navigateRegister = (event) => {
       navigate("/register");
