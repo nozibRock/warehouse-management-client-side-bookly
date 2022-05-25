@@ -1,7 +1,12 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import { AiFillEyeInvisible, AiFillEye } from "react-icons/ai";
 
 const Signup = () => {
+    const [state, setState] = useState(false);
+    const toggleBtn = () => {
+      setState((prevState) => !prevState);
+    };
     return (
         <div className='bg-black'>
             <div className='flex justify-center items-center py-8 sm:px-6 lg:px-8'>
@@ -24,10 +29,12 @@ const Signup = () => {
                         <div className='mt-8 content-center relative'>
                             <label htmlFor="" className='text-sm font-bold text-gray-700 tracking-wide'>Password</label>
                             <input type="password" name="" id="" className='w-full content-center text-base py-2 px-3 rounded border-b border-gray-300 focus:outline-none focus:border-indigo-500' placeholder='Enter your password' required />
+                            <button className='absolute text-xl top-8 right-3 cursor-pointer' onClick={toggleBtn}>{state ? <AiFillEyeInvisible /> : <AiFillEye />}</button>
                         </div>
                         <div className='mt-8 content-center relative'>
                             <label htmlFor="" className='text-sm font-bold text-gray-700 tracking-wide'>Confirm Password</label>
                             <input type="password" name="" id="" className='w-full content-center text-base py-2 px-3 rounded border-b border-gray-300 focus:outline-none focus:border-indigo-500' placeholder='Enter your password' required />
+                            <button className='absolute text-xl top-8 right-3 cursor-pointer' onClick={toggleBtn}>{state ? <AiFillEyeInvisible /> : <AiFillEye />}</button>
                         </div>
                         <div className='flex items-center justify-between'>
                             <div className='flex items-center'>

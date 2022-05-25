@@ -1,7 +1,14 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import { AiFillEyeInvisible, AiFillEye } from "react-icons/ai";
+import './Login.css'
 
 const Login = () => {
+    const [state, setState] = useState(false);
+    const toggleBtn = () => {
+        setState(prevState => !prevState);
+    }
+    
     return (
         <div className='bg-black'>
             <div className='flex justify-center items-center py-8 sm:px-6 lg:px-8'>
@@ -33,19 +40,20 @@ const Login = () => {
                         <span className='h-px w-16 bg-gray-400'></span>
                     </div>
                     <form action="" className='mt-8 space-y-6'>
-                        <input type="hidden" name='remember' value='true' />
+                        {/* <input type="hidden" name='remember' value='true' /> */}
                         <div className='relative'>
-                            <label htmlFor="" className='text-sm font-bold text-gray-700 tracking-wide'>Email</label>
+                            <label className='text-sm font-bold text-gray-700 tracking-wide'>Email</label>
                             <input type="email" name="" id="" className='w-full text-base py-2 px-3 rounded border-b border-gray-300 focus:outline-none focus:border-indigo-500' placeholder='mail@gmail.com' required />
                         </div>
                         <div className='mt-8 content-center relative'>
-                            <label htmlFor="" className='text-sm font-bold text-gray-700 tracking-wide'>Password</label>
-                            <input type="password" name="" id="" className='w-full content-center text-base py-2 px-3 rounded border-b border-gray-300 focus:outline-none focus:border-indigo-500' placeholder='Enter your password' required />
+                            <label className='text-sm font-bold text-gray-700 tracking-wide'>Password</label>
+                            <input type={state ? "text" : "password"} className='w-full content-center text-base py-2 px-3 rounded border-b border-gray-300 focus:outline-none focus:border-indigo-500' placeholder='Enter your password' required />
+                            <button className='absolute text-xl top-8 right-3 cursor-pointer' onClick={toggleBtn}>{state ? <AiFillEyeInvisible /> : <AiFillEye />}</button>
                         </div>
                         <div className='flex items-center justify-between'>
                             <div className='flex items-center'>
                                 <input type="checkbox" id='remember_me' name='remember_me'className='h-4 w-4 bg-indigo-500 focus:ring-indigo-400 border-gray-300 rounded' />
-                                <label htmlFor="" for='remember_me' className='ml-2 block text-sm text-gray-900'>Remember me</label>
+                                <label for='remember_me' className='ml-2 block text-sm text-gray-900'>Remember me</label>
                             </div>
                             <div className='text-sm'>
                                 <button className='font-medium text-indigo-500 hover:text-red-500'>Forgot your password?</button>
