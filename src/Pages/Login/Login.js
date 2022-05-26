@@ -1,5 +1,5 @@
 import React, { useRef, useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AiFillEyeInvisible, AiFillEye } from "react-icons/ai";
 import './Login.css'
 import { useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
@@ -9,6 +9,8 @@ const Login = () => {
     const refEmail = useRef('');
     const refPass = useRef('');
     const navigate = useNavigate();
+    const location = useLocation();
+    let from = location.state?.from?.pathname || "/";
     const [signInWithEmailAndPassword, user, loading, error] = useSignInWithEmailAndPassword(auth);
     const [state, setState] = useState(false);
     const toggleBtn = () => {
@@ -16,7 +18,7 @@ const Login = () => {
     }
 
     if (user) {
-        navigate('/')
+        navigate(from, { replace: true });
     }
     
     const handleSubmit = event => {
