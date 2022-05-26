@@ -50,8 +50,8 @@ const Signup = () => {
                             <input type="email" name="email" id="" className='w-full text-base py-2 px-3 rounded border-b border-gray-300 focus:outline-none focus:border-indigo-500' placeholder='mail@gmail.com' required />
                         </div>
                         <div className='mt-8 content-center relative'>
-                            <label htmlFor="" className='text-sm font-bold text-gray-700 tracking-wide'>Password</label>
-                            <input type="password" name="password" id="" className='w-full content-center text-base py-2 px-3 rounded border-b border-gray-300 focus:outline-none focus:border-indigo-500' placeholder='Enter your password' required />
+                            <label htmlFor="password" className='text-sm font-bold text-gray-700 tracking-wide'>Password</label>
+                            <input type="password" name="password" id="password" className='w-full content-center text-base py-2 px-3 rounded border-b border-gray-300 focus:outline-none focus:border-indigo-500' placeholder='Enter your password' required />
                             <button className='absolute text-xl top-8 right-3 cursor-pointer' onClick={toggleBtn}>{state ? <AiFillEyeInvisible /> : <AiFillEye />}</button>
                         </div>
                         <div className='mt-8 content-center relative'>
