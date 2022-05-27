@@ -5,6 +5,7 @@ import './Login.css'
 import { useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
 import auth from '../../firebase.init';
 import SocialLogin from '../../components/Shared/SocialLogin/SocialLogin';
+import { toast } from 'react-toastify';
 
 const Login = () => {
     const refEmail = useRef('');
@@ -21,7 +22,9 @@ const Login = () => {
     if (user) {
         navigate(from, { replace: true });
     }
-    
+    if (error) {
+      toast.error(`ERROR : ${error}`);
+    }
     const handleSubmit = event => {
         event.preventDefault();
         const email = refEmail.current.value;

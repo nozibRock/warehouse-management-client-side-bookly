@@ -44,14 +44,14 @@ const Navbar = () => {
               user.photoURL ? (
                 <img src={user.photoURL} className="w-8 rounded-2xl mr-1" alt="" />
               ) : (
-                <div className=" rounded-full mr-1 bg-sky-600 font-sans py-2 px-4 text-center text-white">
+                <div className=" rounded-full mr-1 bg-black font-sans py-2 px-4 text-center text-white">
                   {user?.displayName?.slice(0, 1)}
                 </div>
               )
             ) : ( "" )}
           </li>
           <li>
-            <p className="text-xl font-medium text-slate-200 font-serif tracking-wide mr-2">
+            <p className="text-xl font-medium text-slate-900 font-serif tracking-wide mr-2">
               {user ? user.displayName : ""}
             </p>
           </li>
