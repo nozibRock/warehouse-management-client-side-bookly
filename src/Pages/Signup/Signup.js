@@ -14,7 +14,7 @@ const Signup = () => {
     const navigate = useNavigate();
     let from = location.state?.from?.pathname || "/";
     const toggleBtn = () => {
-      setState((prevState) => !prevState);
+      setState(prevState => !prevState);
     };
     const navigateLogin = () => {
         navigate('/login')
@@ -42,7 +42,7 @@ const Signup = () => {
                         <h2 className='mt-6 text-3xl font-bold text-gray-900'>Welcome!</h2>
                         <p className='mt-2 text-sm text-gray-600'>Please sign up a account</p>
                     </div>
-                    
+
                     <SocialLogin />
                     
                     <form onSubmit={handleRegister} action="" className='mt-8 space-y-6'>
@@ -57,12 +57,12 @@ const Signup = () => {
                         </div>
                         <div className='mt-8 content-center relative'>
                             <label htmlFor="password" className='text-sm font-bold text-gray-700 tracking-wide'>Password</label>
-                            <input type="password" name="password" id="password" className='w-full content-center text-base py-2 px-3 rounded border-b border-gray-300 focus:outline-none focus:border-indigo-500' placeholder='Enter your password' required />
+                            <input type={state ? "text" : "password"} name="password" id="password" className='w-full content-center text-base py-2 px-3 rounded border-b border-gray-300 focus:outline-none focus:border-indigo-500' placeholder='Enter your password' required />
                             <button className='absolute text-xl top-8 right-3 cursor-pointer' onClick={toggleBtn}>{state ? <AiFillEyeInvisible /> : <AiFillEye />}</button>
                         </div>
                         <div className='mt-8 content-center relative'>
                             <label htmlFor="" className='text-sm font-bold text-gray-700 tracking-wide'>Confirm Password</label>
-                            <input type="password" name="" id="" className='w-full content-center text-base py-2 px-3 rounded border-b border-gray-300 focus:outline-none focus:border-indigo-500' placeholder='Enter your password' required />
+                            <input type={state ? "text" : "password"}name="" id="" className='w-full content-center text-base py-2 px-3 rounded border-b border-gray-300 focus:outline-none focus:border-indigo-500' placeholder='Enter your password' required />
                             <button className='absolute text-xl top-8 right-3 cursor-pointer' onClick={toggleBtn}>{state ? <AiFillEyeInvisible /> : <AiFillEye />}</button>
                         </div>
                         <div className='flex items-center justify-between'>

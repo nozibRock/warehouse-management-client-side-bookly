@@ -2,10 +2,11 @@ import React, { useRef, useState } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AiFillEyeInvisible, AiFillEye } from "react-icons/ai";
 import './Login.css'
-import { useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
+import { useSendPasswordResetEmail, useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
 import auth from '../../firebase.init';
 import SocialLogin from '../../components/Shared/SocialLogin/SocialLogin';
 import { toast } from 'react-toastify';
+import Loader from '../../components/Shared/Loader/Loader';
 
 const Login = () => {
     const refEmail = useRef('');
@@ -14,6 +15,7 @@ const Login = () => {
     const location = useLocation();
     let from = location.state?.from?.pathname || "/";
     const [signInWithEmailAndPassword, user, loading, error] = useSignInWithEmailAndPassword(auth);
+    const [sendPasswordResetEmail, sending] = useSendPasswordResetEmail(auth);
     const [state, setState] = useState(false);
     const toggleBtn = () => {
         setState(prevState => !prevState);
@@ -35,6 +37,15 @@ const Login = () => {
     const navigateRegister = (event) => {
       navigate("/register");
     };
+    const resetPass = async () => {
+        const email = refEmail.current.value;
+        if (email) {
+            await sendPasswordResetEmail(email);
+            toast.success('sent email');
+        } else {
+            toast.warning('please enter your email address');
+        }
+    }
     return (
         <div className='bg-black'>
             <div className='flex justify-center items-center py-8 sm:px-6 lg:px-8'>
@@ -63,9 +74,12 @@ const Login = () => {
                                 <label for='remember_me' className='ml-2 block text-sm text-gray-900'>Remember me</label>
                             </div>
                             <div className='text-sm'>
-                                <button className='font-medium text-indigo-500 hover:text-red-500'>Forgot your password?</button>
+                                <button className='font-medium text-indigo-500 hover:text-red-500' onClick={resetPass}>Forgot your password?</button>
                             </div>
                         </div>
+
+                        {loading || sending ? <Loader></Loader> : ''}
+
                         <div>
                             <button type='submit' className='w-full flex justify-center bg-green-600 text-gray-100 p-4  rounded-full tracking-wide font-semibold  focus:outline-none focus:shadow-outline hover:bg-green-700 shadow-lg cursor-pointer transition ease-in duration-300'>Sign in</button>
                         </div>
