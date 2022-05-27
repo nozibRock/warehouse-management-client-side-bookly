@@ -4,6 +4,7 @@ import { AiFillEyeInvisible, AiFillEye } from "react-icons/ai";
 import { useCreateUserWithEmailAndPassword, useUpdateProfile } from "react-firebase-hooks/auth";
 import auth from '../../firebase.init';
 import { updateProfile } from 'firebase/auth';
+import SocialLogin from '../../components/Shared/SocialLogin/SocialLogin';
 
 const Signup = () => {
     const [state, setState] = useState(false);
@@ -41,11 +42,9 @@ const Signup = () => {
                         <h2 className='mt-6 text-3xl font-bold text-gray-900'>Welcome!</h2>
                         <p className='mt-2 text-sm text-gray-600'>Please sign up a account</p>
                     </div>
-                    <div className='flex justify-center items-center space-x-2'>
-                        <span className='h-px w-16 bg-gray-400'></span>
-                        <span className='text-gray-500 font-normal'>OR</span>
-                        <span className='h-px w-16 bg-gray-400'></span>
-                    </div>
+                    
+                    <SocialLogin />
+                    
                     <form onSubmit={handleRegister} action="" className='mt-8 space-y-6'>
                         <input type="hidden" name='remember' value='true' />
                         <div className='relative'>

@@ -12,6 +12,8 @@ import Login from './Pages/Login/Login';
 import Signup from './Pages/Signup/Signup';
 import Checkout from './Pages/Checkout/Checkout/Checkout';
 import RequireAuth from './components/Shared/RequireAuth/RequireAuth';
+import { ToastContainer } from 'react-toastify';
+import "react-toastify/dist/ReactToastify.css";
 
 function App() {
   return (
@@ -32,6 +34,7 @@ function App() {
         <Route path="*" element={<NotFound></NotFound>} />
       </Routes>
       <Footer />
+      <ToastContainer />
     </div>
   );
 }
