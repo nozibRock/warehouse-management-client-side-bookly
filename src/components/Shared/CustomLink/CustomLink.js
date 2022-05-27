@@ -1,10 +1,18 @@
 import React from 'react';
+import { Link, useMatch, useResolvedPath } from 'react-router-dom';
 
-const CustomLink = () => {
+function CustomLink ({children, to, ...props}) {
+    let resolved = useResolvedPath(to);
+    let match = useMatch({path: resolved.pathname, end:true})
     return (
-        <div>
-            
-        </div>
+      <div>
+        <Link
+          style={{
+            color: match ? "blue" : "",
+            borderBottom: match ? "2px solid blue" : "none",
+            paddingBottom: match ? "2px" : "0",
+          }} to={to} {...props}> {children} </Link>
+      </div>
     );
 };
 

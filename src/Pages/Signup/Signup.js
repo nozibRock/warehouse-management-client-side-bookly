@@ -1,13 +1,17 @@
 import React, { useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AiFillEyeInvisible, AiFillEye } from "react-icons/ai";
-import { useCreateUserWithEmailAndPassword } from "react-firebase-hooks/auth";
+import { useCreateUserWithEmailAndPassword, useUpdateProfile } from "react-firebase-hooks/auth";
 import auth from '../../firebase.init';
+import { updateProfile } from 'firebase/auth';
 
 const Signup = () => {
     const [state, setState] = useState(false);
     const [createUserWithEmailAndPassword, user, loading, error] = useCreateUserWithEmailAndPassword(auth);
+    const [updateProfile, updating, updateError] = useUpdateProfile(auth);
+    const location = useLocation();
     const navigate = useNavigate();
+    let from = location.state?.from?.pathname || "/";
     const toggleBtn = () => {
       setState((prevState) => !prevState);
     };
@@ -17,7 +21,7 @@ const Signup = () => {
     if(user) {
         navigate('/');
     }
-    const handleRegister = event => {
+    const handleRegister = async (event) => {
         event.preventDefault();
         // console.log(event.target.email.value);
         // console.log(event.target.password.value);
@@ -25,6 +29,9 @@ const Signup = () => {
         const email = event.target.email.value;
         const password = event.target.password.value;
         createUserWithEmailAndPassword(email, password);
+        await updateProfile({ displayName: name });
+
+        navigate(from, { replace: true });
     }
     return (
         <div className='bg-black'>
