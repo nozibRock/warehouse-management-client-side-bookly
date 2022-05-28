@@ -3,41 +3,38 @@ import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AiFillEyeInvisible, AiFillEye } from "react-icons/ai";
 import { useCreateUserWithEmailAndPassword, useUpdateProfile } from "react-firebase-hooks/auth";
 import auth from '../../firebase.init';
-import { updateProfile } from 'firebase/auth';
 import SocialLogin from '../../components/Shared/SocialLogin/SocialLogin';
+import { toast } from "react-toastify";
+import Loader from '../../components/Shared/Loader/Loader'
 
 const Signup = () => {
     const [state, setState] = useState(false);
     const [agree, setAgree] = useState(false)
-    const [createUserWithEmailAndPassword, user, loading, error] = useCreateUserWithEmailAndPassword(auth);
+    const [createUserWithEmailAndPassword,  loading, error] = useCreateUserWithEmailAndPassword(auth, { sendEmailVerification: true});
     const [updateProfile, updating, updateError] = useUpdateProfile(auth);
     const location = useLocation();
     const navigate = useNavigate();
-    let from = location.state?.from?.pathname || "/";
+    let from = location.state?.from?.pathname || "/login";
     const toggleBtn = () => {
       setState(prevState => !prevState);
     };
     const navigateLogin = () => {
         navigate('/login')
     }
-    if(user) {
-        navigate('/');
-    }
     const handleRegister = async (event) => {
-        event.preventDefault();
-        // console.log(event.target.email.value);
-        // console.log(event.target.password.value);
-        const name = event.target.name.value;
-        const email = event.target.email.value;
-        const password = event.target.password.value;
-        // const agree = event.target.remember_me.checked;
-        if(agree){ 
-            createUserWithEmailAndPassword(email, password);
+      event.preventDefault();
+      const name = event.target.name.value;
+      const email = event.target.email.value;
+      const password = event.target.password.value;
+        if (error || updateError) {
+            toast.error("ERROR : ", error?.code || updateError?.code);
+            return;
         }
-        // createUserWithEmailAndPassword(email, password);
-        await updateProfile({ displayName: name });
-
-        navigate(from, { replace: true });
+      await createUserWithEmailAndPassword(email, password);
+      await updateProfile({ displayName: name });
+      toast.success("Verification email Sent!");
+      toast.info("Go check your Email and verify your email");
+      navigate(from, { replace: true });
     }
     return (
         <div className='bg-black'>
@@ -77,6 +74,7 @@ const Signup = () => {
                                 <label className={`ml-2 block text-sm ${agree ? 'text-cyan-900' : 'text-red-700'}`} htmlFor="remember_me" >Agreed to Terms and Services</label>
                             </div>
                         </div>
+                        {loading || updating ? <Loader></Loader>: ''}
                         <div>
                             <button disabled={!agree } type='submit' className='w-full flex justify-center bg-green-600 text-gray-100 p-4  rounded-full tracking-wide font-bold  focus:outline-none focus:shadow-outline hover:bg-green-700 shadow-lg cursor-pointer transition ease-in duration-300'>Sign up</button>
                         </div>
