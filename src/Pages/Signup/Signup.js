@@ -8,6 +8,7 @@ import SocialLogin from '../../components/Shared/SocialLogin/SocialLogin';
 
 const Signup = () => {
     const [state, setState] = useState(false);
+    const [agree, setAgree] = useState(false)
     const [createUserWithEmailAndPassword, user, loading, error] = useCreateUserWithEmailAndPassword(auth);
     const [updateProfile, updating, updateError] = useUpdateProfile(auth);
     const location = useLocation();
@@ -29,7 +30,11 @@ const Signup = () => {
         const name = event.target.name.value;
         const email = event.target.email.value;
         const password = event.target.password.value;
-        createUserWithEmailAndPassword(email, password);
+        // const agree = event.target.remember_me.checked;
+        if(agree){ 
+            createUserWithEmailAndPassword(email, password);
+        }
+        // createUserWithEmailAndPassword(email, password);
         await updateProfile({ displayName: name });
 
         navigate(from, { replace: true });
@@ -67,12 +72,13 @@ const Signup = () => {
                         </div>
                         <div className='flex items-center justify-between'>
                             <div className='flex items-center'>
-                                <input type="checkbox" id='remember_me' name='remember_me'className='h-4 w-4 bg-indigo-500 focus:ring-indigo-400 border-gray-300 rounded' />
-                                <label htmlFor="" for='remember_me' className='ml-2 block text-sm text-gray-900'>Agreed to Terms and Services</label>
+                                <input onClick={() => setAgree(!agree)} type="checkbox" id='remember_me' name='remember_me'className='h-4 w-4 bg-indigo-500 focus:ring-indigo-400 border-gray-300 rounded' />
+                                {/* <label className={agree ? 'ml-2 block text-sm text-cyan-900' : 'ml-2 block text-sm text-red-700'} htmlFor="remember_me" >Agreed to Terms and Services</label> */}
+                                <label className={`ml-2 block text-sm ${agree ? 'text-cyan-900' : 'text-red-700'}`} htmlFor="remember_me" >Agreed to Terms and Services</label>
                             </div>
                         </div>
                         <div>
-                            <button type='submit' className='w-full flex justify-center bg-green-600 text-gray-100 p-4  rounded-full tracking-wide font-semibold  focus:outline-none focus:shadow-outline hover:bg-green-700 shadow-lg cursor-pointer transition ease-in duration-300'>Sign up</button>
+                            <button disabled={!agree } type='submit' className='w-full flex justify-center bg-green-600 text-gray-100 p-4  rounded-full tracking-wide font-bold  focus:outline-none focus:shadow-outline hover:bg-green-700 shadow-lg cursor-pointer transition ease-in duration-300'>Sign up</button>
                         </div>
                         <p className='flex flex-col items-center justify-center mt-10 text-center text-md text-gray-500'>
                             <span>Already have an account?</span>
