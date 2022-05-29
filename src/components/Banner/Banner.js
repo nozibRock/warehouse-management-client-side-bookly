@@ -1,7 +1,11 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import banner from '../../assets/banner/2286.jpg';
+import useProducts from '../../hooks/useProducts';
 
 const Banner = () => {
+  const [] = useProducts([]);
+  const navigate = useNavigate();
     return (
       <div className="bg-[#0C0C0C] relative  overflow-hidden -z-0">
         <div className="max-w-7xl mx-auto">
@@ -14,7 +18,7 @@ const Banner = () => {
               problem. Use our unique mood and emotion search to find great
               books with exactly the flavour you've asked for.
             </p>
-            <button className="py-2 px-6 lg:px-8 xl:px-10 inline-flex items-center justify-center text-center text-slate-100 font-bold text-base bg-green-900 rounded-sm hover:bg-opacity-90 mx-2">
+            <button onClick={() => navigate('/products')} className="py-2 px-6 lg:px-8 xl:px-10 inline-flex items-center justify-center text-center text-slate-100 font-bold text-base bg-green-900 rounded-sm hover:bg-opacity-90 mx-2">
               Choose: Mood & Emotion Search
             </button>
           </div>

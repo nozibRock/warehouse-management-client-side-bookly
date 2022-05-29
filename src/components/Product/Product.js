@@ -3,12 +3,11 @@ import { useNavigate } from 'react-router-dom';
 import './Product.css'
 import ReactReadMoreReadLess from "react-read-more-read-less";
 
-const Product = ({product}) => {
-    const { id, name, description, author, publisher, quantity, price,  img} = product;
+const Product = (props) => {
+    const { _id, name, description, author, publisher, quantity, price,  img} = props?.data;
+    const handleDelete = props.button;
     const navigate = useNavigate();
-    const navigateToProductDetail = id => {
-        navigate(`/product/${id}`)
-    }
+
     return (
       <div className="w-full md:w-1/2 xl:w-1/3 px-3  transition-all">
         <div className="bg-black rounded-lg overflow-hidden mb-10">
@@ -21,18 +20,7 @@ const Product = ({product}) => {
             <h2 className="font-semibold text-white text-xl sm:text-[22px] md:text-xl lg:text-[22px] xl:text-xl 2xl:text-[22px] mb-4 block">
               {name}
             </h2>
-            <p className="text-base text-slate-200 leading-relaxed mb-7">
-              <ReactReadMoreReadLess
-                charLimit={100}
-                ellipsis={"..."}
-                readMoreClassName={"react-read-more"}
-                readLessClassName={"react-read-less"}
-                readMoreText={"Read more ▼"}
-                readLessText={"Read less ▲"}
-              >
-                {description}
-              </ReactReadMoreReadLess>
-            </p>
+            <p className="text-base text-slate-200 leading-relaxed mb-7">{description}</p>
 
             <hr className="w-2/3 mx-auto mb-3" />
             <div className="flex justify-center items-center md:flex-row flex-col">
@@ -57,12 +45,20 @@ const Product = ({product}) => {
                 </p>
               </div>
             </div>
-            <div className="flex">
+            <div className="flex flex-col md:flex-row">
               <button
                 className="py-3 px-10 w-full lg:px-8 xl:px-10 inline-flex items-center justify-center text-center text-slate-100 font-semibold text-base bg-green-900 rounded-lg hover:bg-opacity-90 mx-2"
-                onClick={() => navigateToProductDetail(id)}
+                onClick={() => navigate("/product/" + _id)}
               >
                 Manage Book
+              </button>
+              <button
+                onClick={() => handleDelete(_id)}
+                data-mdb-ripple="true"
+                data-mdb-ripple-color="white"
+                className=" py-3 px-10 w-full lg:px-8 xl:px-10 inline-flex items-center justify-center text-center text-slate-100 font-semibold text-base bg-[#c9184a] rounded-lg hover:bg-opacity-90 mx-2"
+              >
+                Delete
               </button>
             </div>
           </div>
