@@ -1,8 +1,10 @@
 import React from 'react';
+import PageTitle from '../../components/Shared/PageTitle/PageTitle';
 
 const About = () => {
     return (
         <div className='w-full h-screen bg-[#0a192f] text-gray-300'>
+            <PageTitle title='About' />
             <div className='flex flex-col justify-center items-center w-full h-full'>
                 <div className='max-w-[1000px] w-full grid grid-cols-6 gap-8'>
                     <div>

@@ -1,9 +1,11 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import PageTitle from "../../components/Shared/PageTitle/PageTitle";
 
 const Blogs = () => {
   return (
     <div className="bg-[#0a192f]">
+      <PageTitle title='Blogs' />
       <h1 className="text-center text-4xl py-6 font-bold text-gray-300">
         QNA Section
       </h1>

@@ -7,6 +7,7 @@ import auth from '../../firebase.init';
 import SocialLogin from '../../components/Shared/SocialLogin/SocialLogin';
 import { toast } from 'react-toastify';
 import Loader from '../../components/Shared/Loader/Loader';
+import PageTitle from '../../components/Shared/PageTitle/PageTitle';
 
 const Login = () => {
     const refEmail = useRef('');
@@ -48,6 +49,7 @@ const Login = () => {
     }
     return (
         <div className='bg-black'>
+            <PageTitle title='Login' />
             <div className='flex justify-center items-center py-8 sm:px-6 lg:px-8'>
                 <div className='w-full max-w-md space-y-4 p-8 bg-gray-300 rounded-2xl z-10'>
                     <div className='text-center'>

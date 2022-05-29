@@ -3,6 +3,7 @@ import { useSignInWithFacebook, useSignInWithGithub, useSignInWithGoogle } from 
 import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import auth from '../../../firebase.init';
+import Loader from '../Loader/Loader';
 
 const SocialLogin = () => {
     const [signInWithGoogle, googleUser, googleLoading, googleError] = useSignInWithGoogle(auth);
@@ -17,6 +18,7 @@ const SocialLogin = () => {
     }
     return (
         <div>
+            {googleLoading || githubLoading || FacebookLoading ? ( <Loader /> ) : ''}
            <div className='flex flex-row justify-center items-center space-x-3'>
                 <span className='w-11 h-11 items-center justify-center inline-flex rounded-full font-bold text-lg  text-white  hover:bg-white hover:shadow-lg cursor-pointer transition ease-in duration-300'>
                     <button data-mdb-ripple="true" data-mdb-ripple-color="white" onClick={() => {signInWithGoogle()}}>
