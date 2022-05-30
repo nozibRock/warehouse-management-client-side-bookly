@@ -6,7 +6,7 @@ import PageTitle from '../Shared/PageTitle/PageTitle';
 const ProductDetail = () => {
     const { productId } = useParams();
     const [product, setProduct] = useState({});
-    const { name, img, description, price, quantity, supplier } = product;
+    const { name, img, description, price, quantity, publisher, isbn, pages, author } = product;
     useEffect(() => {
       const url = `http://localhost:5000/book/${productId}`;
       fetch(url)
@@ -28,7 +28,7 @@ const ProductDetail = () => {
           if (quantity < 1) {
             Swal.fire(
               "Oops!",
-              "You can't decrease the quantity anymore!",
+              "We don't have that much copies right now!",
               "error"
             );
             return;
@@ -44,8 +44,8 @@ const ProductDetail = () => {
             body: JSON.stringify(newProduct),
           });
           Swal.fire(
-            "Deliverd!",
-            "Product quantity decreased successfully",
+            "Delivered!",
+            "Books delivered successfully",
             "success"
           );
         }
@@ -104,16 +104,26 @@ const ProductDetail = () => {
                 <hr className="w-1/2 mx-auto my-4" />
                 <div className="md:w-1/2 w-full md:mx-auto">
                   <p className="font-medium text-gray-200 text-lg mb-4">
-                    Price : <span className="text-purple-400">${price}</span>
+                    Price : <span className="text-purple-400">TK.{price}</span>
                   </p>
                   <p className="font-medium text-gray-200 text-lg mb-4">
-                    Sold :
+                    Sold :{" "}
                     <span className="text-orange-400">
-                      {quantity < 1 ? "Yes" : "No"}
+                      {quantity <= 1 ? "Yes" : "No"}
                     </span>
                   </p>
                   <p className="font-medium text-gray-200 text-lg mb-4">
-                    Supplier : <span className="text-sky-400">{supplier}</span>
+                    ISBN : <span className="text-purple-400">{isbn}</span>
+                  </p>
+                  <p className="font-medium text-gray-200 text-lg mb-4">
+                    Publisher :{" "}
+                    <span className="text-sky-400">{publisher}</span>
+                  </p>
+                  <p className="font-medium text-gray-200 text-lg mb-4">
+                    Author : <span className="text-sky-400">{author}</span>
+                  </p>
+                  <p className="font-medium text-gray-200 text-lg mb-4">
+                    No of Page : <span className="text-purple-400">{pages}</span>
                   </p>
                   <p className="font-medium text-gray-200 text-lg">
                     Quantity :{" "}

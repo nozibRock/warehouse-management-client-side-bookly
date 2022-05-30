@@ -9,7 +9,6 @@ const AddProduct = () => {
     const [user] = useAuthState(auth);
     const { email } = user;
     const { register, handleSubmit, reset } = useForm();
-    const onSubmit = data => console.log(data);
     const handleAddProduct = (data) => {
       const url = `http://localhost:5000/book/`;
       fetch(url, {
@@ -19,7 +18,7 @@ const AddProduct = () => {
         },
         body: JSON.stringify(data),
       }).then((res) => res.json());
-      Swal.fire("Done!", "The Product added Successfully!", "success");
+      Swal.fire("Done!", "The Book added Successfully!", "success");
       reset();
     };
     return (
@@ -39,10 +38,7 @@ const AddProduct = () => {
                   <h3 className="pb-4 text-2xl text-yellow-50 text-center">
                     Add New Book!
                   </h3>
-                  <form
-                    className="md:px-8 pt-6 pb-8 mb-4 bg-white rounded"
-                    onSubmit={handleSubmit(handleAddProduct, onSubmit)}
-                  >
+                  <form className="md:px-8 pt-6 pb-8 mb-4 bg-white rounded" onSubmit={handleSubmit(handleAddProduct)}>
                     <div className="mb-4 md:flex md:justify-between">
                       <div className="mb-4 md:mr-2 md:mb-0">
                         <label
