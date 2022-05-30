@@ -1,10 +1,8 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import banner from '../../assets/banner/2286.jpg';
-import useProducts from '../../hooks/useProducts';
 
 const Banner = () => {
-  const [] = useProducts([]);
   const navigate = useNavigate();
     return (
       <div className="bg-[#0C0C0C] relative  overflow-hidden -z-0">
