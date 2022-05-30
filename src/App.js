@@ -10,7 +10,6 @@ import ProductDetail from './components/ProductDetail/ProductDetail';
 import NotFound from './Pages/NotFound/NotFound';
 import Login from './Pages/Login/Login';
 import Signup from './Pages/Signup/Signup';
-import Checkout from './Pages/Checkout/Checkout/Checkout';
 import RequireAuth from './components/Shared/RequireAuth/RequireAuth';
 import { ToastContainer } from 'react-toastify';
 import "react-toastify/dist/ReactToastify.css";
@@ -29,7 +28,11 @@ function App() {
           </RequireAuth>
         } />
         
-        <Route path="/product/:productId" element={<ProductDetail />} />
+        <Route path="/product/:productId" element={
+          <RequireAuth>
+            <ProductDetail />
+          </RequireAuth>
+        } />
 
         <Route path='/addProducts' element={
           <RequireAuth>
@@ -40,11 +43,7 @@ function App() {
         <Route path="/blogs" element={<Blogs></Blogs>} />
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<Signup />} />
-        <Route path="/checkout" element={
-          <RequireAuth>
-            <Checkout></Checkout>
-          </RequireAuth>
-        } />
+
         <Route path="*" element={<NotFound></NotFound>} />
       </Routes>
       <Footer />

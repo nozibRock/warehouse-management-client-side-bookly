@@ -1,7 +1,6 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import './Product.css'
-import ReactReadMoreReadLess from "react-read-more-read-less";
 
 const Product = (props) => {
     const { _id, name, description, author, publisher, quantity, price,  img} = props?.data;
