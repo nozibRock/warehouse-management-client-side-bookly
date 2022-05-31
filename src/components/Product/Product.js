@@ -8,12 +8,9 @@ const Product = (props) => {
     const navigate = useNavigate();
 
     return (
-      <div className="w-full md:w-1/2 xl:w-1/3 px-3  transition-all">
+      <div className="w-full md:w-1/2  px-3  transition-all">
         <div className="bg-black rounded-lg overflow-hidden mb-10">
-          <img
-            src={img}
-            alt={name}
-            className="w-64 max-h-96 h-64 mx-auto hover:scale-110 transition-all object-cover"
+          <img src={img} alt={name} className="w-64 max-h-96 h-64 mx-auto hover:scale-110 transition-all object-cover"
           />
           <div className="p-8 sm:p-9 md:p-7 xl:p-9">
             <h2 className="font-semibold text-white text-xl sm:text-[22px] md:text-xl lg:text-[22px] xl:text-xl 2xl:text-[22px] mb-4 block">
@@ -46,17 +43,12 @@ const Product = (props) => {
             </div>
             <div className="flex flex-col md:flex-row">
               <button
-                className="py-3 px-10 w-full lg:px-8 xl:px-10 inline-flex items-center justify-center text-center text-slate-100 font-semibold text-base bg-green-900 rounded-lg hover:bg-opacity-90 mx-2"
+                className="py-3 px-10 lg:px-8 xl:px-10 inline-flex items-center justify-center text-center text-slate-100 font-bold text-base bg-green-900 rounded-lg hover:bg-opacity-90 mx-2 sm:my-4 my-0"
                 onClick={() => navigate("/product/" + _id)}
               >
                 Manage Book
               </button>
-              <button
-                onClick={() => handleDelete(_id)}
-                data-mdb-ripple="true"
-                data-mdb-ripple-color="white"
-                className=" py-3 px-10 w-full lg:px-8 xl:px-10 inline-flex items-center justify-center text-center text-slate-100 font-semibold text-base bg-[#c9184a] rounded-lg hover:bg-opacity-90 mx-2"
-              >
+              <button onClick={() => handleDelete(_id)} data-mdb-ripple="true" data-mdb-ripple-color="white" className=" py-3 px-10 lg:px-8 xl:px-10 inline-flex items-center justify-center text-center text-slate-100 font-bold text-base bg-[#c9184a] rounded-lg hover:bg-opacity-90 mx-2 sm:my-4 my-0">
                 Delete
               </button>
             </div>
