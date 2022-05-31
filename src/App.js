@@ -40,8 +40,7 @@ function App() {
           }
         />
 
-        <Route
-          path="/addBook"
+        <Route path="/addBook"
           element={
             <RequireAuth>
               <AddProduct />

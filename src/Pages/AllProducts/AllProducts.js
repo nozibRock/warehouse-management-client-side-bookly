@@ -30,7 +30,7 @@ const AllProducts = () => {
           });
         Swal.fire(
           "Deleted!",
-          "The product deleted successfully from the database",
+          "The book deleted successfully from the database",
           "success"
         );
       }
@@ -54,7 +54,7 @@ const AllProducts = () => {
       <div className="flex flex-wrap -mx-4">
         <div className="w-full px-4">
           <div className="text-center mx-auto my-6 max-w-[510px]">
-            <h2 className="text-5xl font-medium text-center text-gray-800">
+            <h2 className="text-5xl font-medium text-center text-gray-400">
               All Books
             </h2>
             <p className="text-bae text-slate-400">

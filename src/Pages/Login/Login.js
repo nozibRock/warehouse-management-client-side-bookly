@@ -18,9 +18,7 @@ const Login = () => {
     const [signInWithEmailAndPassword, user, loading, error] = useSignInWithEmailAndPassword(auth);
     const [sendPasswordResetEmail, sending] = useSendPasswordResetEmail(auth);
     const [state, setState] = useState(false);
-    const toggleBtn = () => {
-        setState(prevState => !prevState);
-    }
+    
 
     if (user) {
         navigate(from, { replace: true });
@@ -35,6 +33,9 @@ const Login = () => {
         // console.log(email, password);
         signInWithEmailAndPassword(email, password);
     }
+    const toggleBtn = () => {
+      setState((prevState) => !prevState);
+    };
     const navigateRegister = (event) => {
       navigate("/register");
     };
@@ -83,7 +84,7 @@ const Login = () => {
                         {loading || sending ? <Loader></Loader> : ''}
 
                         <div>
-                            <button type='submit' className='w-full flex justify-center bg-green-600 text-gray-100 p-4  rounded-full tracking-wide font-semibold  focus:outline-none focus:shadow-outline hover:bg-green-700 shadow-lg cursor-pointer transition ease-in duration-300'>Sign in</button>
+                            <button type='submit' className='w-full flex justify-center bg-green-600 text-gray-100 p-4  rounded-full tracking-wide font-bold  focus:outline-none focus:shadow-outline hover:bg-green-700 shadow-lg cursor-pointer transition ease-in duration-300'>Sign in</button>
                         </div>
                         <p className='flex flex-col items-center justify-center mt-10 text-center text-md text-gray-500'>
                             <span>Don't have an account?</span>
