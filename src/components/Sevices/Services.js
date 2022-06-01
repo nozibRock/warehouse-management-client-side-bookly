@@ -50,10 +50,10 @@ const Services = () => {
                   <span className="font-semibold text-lg text-black mb-2 block">
                     Our Services
                   </span>
-                  <h2 className="font-bold text-3xl sm:text-4xl md:text-[40px] text-slate-900 mb-4">
+                  <h2 className="font-bold text-3xl sm:text-4xl md:text-[40px] text-slate-100 mb-4">
                     What We Offer
                   </h2>
-                  <p className="text-base text-slate-800">
+                  <p className="text-base text-slate-100">
                     We offer various types of services to make our clients
                     happy. Here are some of them.
                   </p>

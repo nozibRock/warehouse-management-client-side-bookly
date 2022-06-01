@@ -61,7 +61,7 @@ function App() {
 
         <Route path="/about" element={<About></About>} />
         <Route path="/blogs" element={<Blogs></Blogs>} />
-        <Route path="/login" element={<Login />} />
+        <Route path="/signIn" element={<Login />} />
         <Route path="/signUp" element={<Signup />} />
         <Route path="*" element={<NotFound></NotFound>} />
       </Routes>

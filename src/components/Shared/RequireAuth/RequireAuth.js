@@ -14,7 +14,7 @@ const RequireAuth = ({ children }) => {
     return <Loader></Loader>
   }
   if (!user) {
-      return <Navigate to="/login" state={{ from: location }} replace />;
+      return <Navigate to="/signIn" state={{ from: location }} replace />;
   }
   if ( user.providerData[0]?.providerId === 'password' && !user.emailVerified) {
       return <div className="my-10 mx-auto">
