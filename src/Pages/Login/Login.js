@@ -8,6 +8,7 @@ import SocialLogin from '../../components/Shared/SocialLogin/SocialLogin';
 import { toast } from 'react-toastify';
 import Loader from '../../components/Shared/Loader/Loader';
 import PageTitle from '../../components/Shared/PageTitle/PageTitle';
+import axios from "axios";
 
 const Login = () => {
     const refEmail = useRef('');
@@ -21,17 +22,21 @@ const Login = () => {
     
 
     if (user) {
-        navigate(from, { replace: true });
+        // navigate(from, { replace: true });
     }
     if (error) {
       toast.error(`ERROR : ${error}`);
     }
-    const handleSubmit = event => {
+    const handleSubmit = async event => {
         event.preventDefault();
         const email = refEmail.current.value;
         const password = refPass.current.value;
         // console.log(email, password);
-        signInWithEmailAndPassword(email, password);
+        await signInWithEmailAndPassword(email, password);
+        const {data} = await axios.post('http://localhost:5000/login', {email});
+        console.log(data);
+        localStorage.setItem('accessToken', data.accessToken);
+        navigate(from, { replace: true });
     }
     const toggleBtn = () => {
       setState((prevState) => !prevState);
@@ -69,12 +74,12 @@ const Login = () => {
                         <div className='mt-8 content-center relative'>
                             <label className='text-sm font-bold text-gray-700 tracking-wide'>Password</label>
                             <input ref={refPass} type={state ? "text" : "password"} className='w-full content-center text-base py-2 px-3 rounded border-b border-gray-300 focus:outline-none focus:border-indigo-500' placeholder='Enter your password' required />
-                            <button className='absolute text-xl top-8 right-3 cursor-pointer' onClick={toggleBtn}>{state ? <AiFillEyeInvisible /> : <AiFillEye />}</button>
+                            <p className='absolute text-xl top-8 right-3 cursor-pointer' onClick={toggleBtn}>{state ? <AiFillEyeInvisible /> : <AiFillEye />}</p>
                         </div>
                         <div className='flex items-center justify-between'>
                             <div className='flex items-center'>
                                 <input type="checkbox" id='remember_me' name='remember_me'className='h-4 w-4 bg-indigo-500 focus:ring-indigo-400 border-gray-300 rounded' />
-                                <label for='remember_me' className='ml-2 block text-sm text-gray-900'>Remember me</label>
+                                <label htmlFor='remember_me' className='ml-2 block text-sm text-gray-900'>Remember me</label>
                             </div>
                             <div className='text-sm'>
                                 <button className='font-medium text-indigo-500 hover:text-red-500' onClick={resetPass}>Forgot your password?</button>

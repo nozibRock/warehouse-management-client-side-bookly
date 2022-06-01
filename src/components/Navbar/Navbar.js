@@ -50,7 +50,7 @@ const Navbar = () => {
               ))}
 
           <div className="dropdown dropdown-end">
-            <label tabindex="0" class="btn btn-active btn-circle avatar">
+            <label tabIndex="0" className="btn btn-active btn-circle avatar">
               <div className="w-10 rounded-full">
                 {user ? (
                   user.photoURL ? (
@@ -74,13 +74,13 @@ const Navbar = () => {
               </div>
             </label>
             <ul
-              tabindex="0"
-              class="mt-3 p-4 shadow menu menu-compact dropdown-content bg-black rounded-box w-60"
+              tabIndex="0"
+              className="mt-3 p-4 shadow menu menu-compact dropdown-content bg-black rounded-box w-60"
             >
               <li>
                 {user ? (
-                  <div class="py-3 px-4 flex flex-wrap">
-                    <span class=" text-sm text-white dark:text-white">
+                  <div className="py-3 px-4 flex flex-wrap">
+                    <span className=" text-sm text-white dark:text-white">
                       {user ? user.displayName : ""}
                     </span>
                   </div>
@@ -90,8 +90,8 @@ const Navbar = () => {
               </li>
               <li>
                 {user ? (
-                  <div class="py-3 flex flex-wrap">
-                    <span class="text-sm text-white dark:text-white">
+                  <div className="py-3 flex flex-wrap">
+                    <span className="text-sm text-white dark:text-white">
                       {user?.email}
                     </span>
                   </div>
@@ -218,8 +218,8 @@ const Navbar = () => {
                     </li>
                     <li>
                       {user ? (
-                        <div class="py-3 flex flex-wrap">
-                          <span class="text-md text-white dark:text-white">
+                        <div className="py-3 flex flex-wrap">
+                          <span className="text-md text-white dark:text-white">
                             {user?.email}
                           </span>
                         </div>

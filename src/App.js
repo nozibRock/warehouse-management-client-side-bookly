@@ -15,6 +15,7 @@ import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import AllProducts from "./Pages/AllProducts/AllProducts";
 import AddProduct from "./Pages/AddProduct/AddProduct";
+import MyItems from "./Pages/MyItems/MyItems";
 
 function App() {
   return (
@@ -47,6 +48,8 @@ function App() {
             </RequireAuth>
           }
         />
+        
+        <Route path="/myItems" element={<RequireAuth><MyItems /></RequireAuth>} />
         <Route path="/about" element={<About></About>} />
         <Route path="/blogs" element={<Blogs></Blogs>} />
         <Route path="/login" element={<Login />} />

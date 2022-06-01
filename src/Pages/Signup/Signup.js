@@ -62,12 +62,12 @@ const Signup = () => {
                         <div className='mt-8 content-center relative'>
                             <label htmlFor="password" className='text-sm font-bold text-gray-700 tracking-wide'>Password</label>
                             <input type={state ? "text" : "password"} name="password" id="password" className='w-full content-center text-base py-2 px-3 rounded border-b border-gray-300 focus:outline-none focus:border-indigo-500' placeholder='Enter your password' required />
-                            <button className='absolute text-xl top-8 right-3 cursor-pointer' onClick={toggleBtn}>{state ? <AiFillEyeInvisible /> : <AiFillEye />}</button>
+                            <p className='absolute text-xl top-8 right-3 cursor-pointer' onClick={toggleBtn}>{state ? <AiFillEyeInvisible /> : <AiFillEye />}</p>
                         </div>
                         <div className='mt-8 content-center relative'>
                             <label htmlFor="" className='text-sm font-bold text-gray-700 tracking-wide'>Confirm Password</label>
                             <input type={state ? "text" : "password"}name="" id="" className='w-full content-center text-base py-2 px-3 rounded border-b border-gray-300 focus:outline-none focus:border-indigo-500' placeholder='Enter your password' required />
-                            <button className='absolute text-xl top-8 right-3 cursor-pointer' onClick={toggleBtn}>{state ? <AiFillEyeInvisible /> : <AiFillEye />}</button>
+                            <p className='absolute text-xl top-8 right-3 cursor-pointer' onClick={toggleBtn}>{state ? <AiFillEyeInvisible /> : <AiFillEye />}</p>
                         </div>
                         <div className='flex items-center justify-between'>
                             <div className='flex items-center'>
