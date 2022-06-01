@@ -2,6 +2,6 @@
   { "id": 1, "name": "Home", "to": "/" },
   { "id": 2, "name": "Blogs", "to": "/blogs" },
   { "id": 3, "name": "About", "to": "/about" },
-  { "id": 4, "name": "Log In", "to": "/login" },
-  { "id": 5, "name": "Sign up", "to": "/signup" }
+  { "id": 4, "name": "Sign in", "to": "/login" },
+  { "id": 5, "name": "Sign up", "to": "/signUp" }
 ]

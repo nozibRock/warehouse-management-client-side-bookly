@@ -51,7 +51,7 @@ const Navbar = () => {
 
           <div className="dropdown dropdown-end">
             <label tabIndex="0" className="btn btn-active btn-circle avatar">
-              <div className="w-10 rounded-full">
+              <div className="w-8 h-8 rounded-full">
                 {user ? (
                   user.photoURL ? (
                     <img
@@ -60,7 +60,7 @@ const Navbar = () => {
                       alt=""
                     />
                   ) : (
-                    <div className=" rounded-full mr-1 font-sans py-2 px-4 text-md text-center text-white">
+                    <div className="font-sans text-md pt-2 text-white">
                       {user?.displayName?.slice(0, 1)}
                     </div>
                   )
@@ -68,7 +68,7 @@ const Navbar = () => {
                   <img
                     src="https://www.kindpng.com/picc/m/269-2697881_computer-icons-user-clip-art-transparent-png-icon.png"
                     alt="user_icon"
-                    className="rounded-full"
+                    className="rounded-[32px]"
                   />
                 )}
               </div>
@@ -118,7 +118,7 @@ const Navbar = () => {
                     data-mdb-ripple-color="white"
                     className="inline-flex items-center justify-center h-12 px-6 font-medium tracking-wide text-white transition duration-200 rounded shadow-md bg-green-900 hover:bg-gray-600 focus:shadow-outline focus:outline-none active:scale-90"
                   >
-                    Log in
+                    Sign in
                   </button>
                 )}
               </li>
@@ -244,7 +244,7 @@ const Navbar = () => {
                           className="inline-flex items-center justify-center h-10 px-3 font-medium tracking-wide text-white transition duration-200 rounded shadow-md bg-green-900 hover:bg-gray-500 focus:shadow-outline focus:outline-none"
                         >
                           {" "}
-                          Log in{" "}
+                          Sign in{" "}
                         </Link>
                       )}
                     </li>

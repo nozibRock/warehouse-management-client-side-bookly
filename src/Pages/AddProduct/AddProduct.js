@@ -19,7 +19,7 @@ const AddProduct = () => {
         body: JSON.stringify(data),
       }).then((res) => res.json());
       Swal.fire("Done!", "The Book added Successfully!", "success");
-      reset();
+      // reset();
     };
     return (
       <div>

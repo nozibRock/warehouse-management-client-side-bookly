@@ -9,7 +9,7 @@ import Blogs from "./Pages/Blogs/Blogs";
 import ProductDetail from "./components/ProductDetail/ProductDetail";
 import NotFound from "./Pages/NotFound/NotFound";
 import Login from "./Pages/Login/Login";
-import Signup from "./Pages/Signup/Signup";
+import Signup from "./Pages/Signup/Signup"
 import RequireAuth from "./components/Shared/RequireAuth/RequireAuth";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -41,20 +41,28 @@ function App() {
           }
         />
 
-        <Route path="/addBook"
+        <Route
+          path="/addBook"
           element={
             <RequireAuth>
               <AddProduct />
             </RequireAuth>
           }
         />
-        
-        <Route path="/myItems" element={<RequireAuth><MyItems /></RequireAuth>} />
+
+        <Route
+          path="/myItems"
+          element={
+            <RequireAuth>
+              <MyItems />
+            </RequireAuth>
+          }
+        />
+
         <Route path="/about" element={<About></About>} />
         <Route path="/blogs" element={<Blogs></Blogs>} />
         <Route path="/login" element={<Login />} />
-        <Route path="/signup" element={<Signup />} />
-
+        <Route path="/signUp" element={<Signup />} />
         <Route path="*" element={<NotFound></NotFound>} />
       </Routes>
       <Footer />
