@@ -17,7 +17,6 @@ const MyItems = () => {
             authorization: `Bearer ${localStorage.getItem("accessToken")}`,
           },
         });
-        console.log(data);
         setProducts(data);
       } catch (err) {
         if (err.response.status === 401 || err.response.status === 403) {
@@ -59,7 +58,6 @@ const MyItems = () => {
 
   return (
     <div>
-      {/*  */}
       <section className="antialiased bg-gray-900 text-white h-screen px-4">
         <div className="flex flex-col justify-center h-full">
           <div className="w-9/12 mx-auto bg-white shadow-lg rounded-sm border border-gray-200">

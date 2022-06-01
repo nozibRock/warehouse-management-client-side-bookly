@@ -216,6 +216,7 @@ const Navbar = () => {
                         {user ? user.displayName : ""}
                       </p>
                     </li>
+
                     <li>
                       {user ? (
                         <div className="py-3 flex flex-wrap">
@@ -227,6 +228,7 @@ const Navbar = () => {
                         ""
                       )}
                     </li>
+                    
                     <li>
                       {user ? (
                         <button
@@ -239,12 +241,8 @@ const Navbar = () => {
                           Log out{" "}
                         </button>
                       ) : (
-                        <Link
-                          to={"/signIn"}
-                          className="inline-flex items-center justify-center h-10 px-3 font-medium tracking-wide text-white transition duration-200 rounded shadow-md bg-green-900 hover:bg-gray-500 focus:shadow-outline focus:outline-none"
-                        >
-                          {" "}
-                          Sign in{" "}
+                        <Link to={"/signIn"} className="inline-flex items-center justify-center h-10 px-3 font-medium tracking-wide text-white transition duration-200 rounded shadow-md bg-green-900 hover:bg-gray-500 focus:shadow-outline focus:outline-none">
+                          Sign in
                         </Link>
                       )}
                     </li>

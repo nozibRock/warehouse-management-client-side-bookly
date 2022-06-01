@@ -5,24 +5,24 @@ import PageTitle from "../../components/Shared/PageTitle/PageTitle";
 const Blogs = () => {
   return (
     <div className="bg-[#0a192f]">
-      <PageTitle title='Blogs' />
+      <PageTitle title="Blogs" />
       <h1 className="text-center text-4xl py-6 font-bold text-gray-300">
         QNA Section
       </h1>
       <hr className="xl:w-1/5 md:w-1/3 sm:w-1/2 mx-auto border-b-4 border-pink-600" />
       <div className="my-8 ">
         <div className="grid lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 gap-4 mx-auto">
-          <div class="max-w-sm bg-white rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700 animate__animated animate__backInLeft">
+          <div className="max-w-sm bg-white rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700 animate__animated animate__backInLeft">
             <Link to="#">
               <img
-                class="rounded-t-lg"
+                className="rounded-t-lg"
                 src="https://res.cloudinary.com/practicaldev/image/fetch/s--OoV4BYAd--/c_imagga_scale,f_auto,fl_progressive,h_420,q_auto,w_1000/https://dev-to-uploads.s3.amazonaws.com/uploads/articles/kxjkl4wi1d0hioh7fooa.png"
                 alt=""
               />
             </Link>
-            <div class="p-5">
+            <div className="p-5">
               <Link to="#">
-                <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
+                <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
                   Differences between Javascript and NodeJs
                   <div className="tags flex justify-center items-center my-4">
                     <span className="px-4 py-2 rounded-full text-gray-800 bg-gray-200 font-semibold text-sm flex align-center w-max cursor-pointer active:bg-gray-300 transition duration-300 ease mx-2">
@@ -48,17 +48,17 @@ const Blogs = () => {
               </p>
             </div>
           </div>
-          <div class="max-w-sm bg-white rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700 animate__animated animate__backInDown">
+          <div className="max-w-sm bg-white rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700 animate__animated animate__backInDown">
             <Link to="#">
               <img
-                class="rounded-t-lg"
+                className="rounded-t-lg"
                 src="https://media.geeksforgeeks.org/wp-content/cdn-uploads/20191104165821/SQL-Vs-NoSQL1.png"
                 alt=""
               />
             </Link>
-            <div class="p-5">
+            <div className="p-5">
               <Link to="#">
-                <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
+                <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
                   Difference between SQL and NoSQL
                   <div className="tags flex justify-center items-center my-4">
                     <span className="px-4 py-2 rounded-full text-gray-800 bg-gray-200 font-semibold text-sm flex align-center w-max cursor-pointer active:bg-gray-300 transition duration-300 ease mx-2">
@@ -85,17 +85,17 @@ const Blogs = () => {
               </p>
             </div>
           </div>
-          <div class="max-w-sm bg-white rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700 animate__animated animate__backInRight">
+          <div className="max-w-sm bg-white rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700 animate__animated animate__backInRight">
             <Link to="#">
               <img
-                class="rounded-t-lg"
+                className="rounded-t-lg"
                 src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTOBBMq4Ch8po6qnByFNOb8UihcrQ-I71wvqMys3jZsLv4d4LRd97ByGWwug46lO9QRurI&usqp=CAU"
                 alt=""
               />
             </Link>
-            <div class="p-5">
+            <div className="p-5">
               <Link to="#">
-                <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
+                <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
                   What is the purpose of JWT and how does it work?
                   <div className="tags flex justify-center items-center my-4">
                     <span className="px-4 py-2 rounded-full text-gray-800 bg-gray-200 font-semibold text-sm flex align-center w-max cursor-pointer active:bg-gray-300 transition duration-300 ease mx-2">
