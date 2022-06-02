@@ -108,7 +108,7 @@ const Navbar = () => {
                     type="button"
                     className="inline-flex items-center justify-center h-10 px-3 font-medium tracking-wide text-white transition duration-200 rounded shadow-md bg-green-900 hover:bg-gray-600 focus:shadow-outline focus:outline-none active:scale-90"
                   >
-                    Log out
+                    Sign out
                   </button>
                 ) : (
                   <button
@@ -238,7 +238,7 @@ const Navbar = () => {
                           className="inline-flex items-center justify-center h-10 px-3 font-medium tracking-wide text-white transition duration-200 rounded shadow-md bg-green-900 hover:bg-gray-500 focus:shadow-outline focus:outline-none"
                         >
                           {" "}
-                          Log out{" "}
+                          Sign out{" "}
                         </button>
                       ) : (
                         <Link to={"/signIn"} className="inline-flex items-center justify-center h-10 px-3 font-medium tracking-wide text-white transition duration-200 rounded shadow-md bg-green-900 hover:bg-gray-500 focus:shadow-outline focus:outline-none">

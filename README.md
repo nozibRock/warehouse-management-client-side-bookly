@@ -1,6 +1,6 @@
 # Bookly
 
-Live site Link: [Click here](https://github.com/facebook/create-react-app).
+Live site Link: [Click here](https://warehouse-management-bd69.web.app/).
 
 It is a book related warehouse website.
 
@@ -16,7 +16,7 @@ In the website, you can see:
 
 - Login Page : You can login with your Email and password , Google , Github or Facebook
 
-- About : It contains some of the information of the author
+- About : It contains some of the information of the developer.
 ### Technologies used in this website
 
 - `NodeJS` , `MongoDB` , `Heroku` and `jwt`
