@@ -1,8 +1,33 @@
-# Getting Started with Create React App
+# Bookly
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Live site Link: [Click here](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+It is a book related warehouse website.
+
+## Website features
+
+In the website, you can see:
+
+- Home Page : You can see 6 sections here(Navbar, Header,Products, Services, Contact and Footer)
+
+- Products : Here you will find the products of Bookly Warehouse.
+
+- Services : Here you can see the services of Bookly.
+
+- Login Page : You can login with your Email and password , Google , Github or Facebook
+
+- About : It contains some of the information of the author
+### Technologies used in this website
+
+- `NodeJS` , `MongoDB` , `Heroku` and `jwt`
+
+- `React.js` , `React Router` and `lord icons`
+
+- `Firebase` , `React router hooks` and `react-toastify`
+
+- `Tailwind css` , `DaisyUi` and `Flowbite`
+
+
 
 In the project directory, you can run:
 

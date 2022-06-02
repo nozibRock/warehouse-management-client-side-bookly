@@ -4,16 +4,13 @@ import auth from "../../firebase.init";
 import axios from "axios";
 import MyItem from "./MyItem/MyItem";
 import Swal from "sweetalert2";
-import { useNavigate } from "react-router-dom";
-import { signOut } from "firebase/auth";
 
 const MyItems = () => {
   const [products, setProducts] = useState([]);
   const [user] = useAuthState(auth);
-  const navigate = useNavigate();
   useEffect(() => {
     async function getProducts() {
-      const url = `http://localhost:5000/productlist?email=${user.email}`;
+      const url = `https://warm-lowlands-49144.herokuapp.com/productlist?email=${user?.email}`;
       try {
         const { data } = await axios.get(url, {
           headers: {
@@ -23,8 +20,6 @@ const MyItems = () => {
         setProducts(data);
       } catch (err) {
         if (err.response.status === 401 || err.response.status === 403) {
-          signOut(auth);
-          navigate("/signIn");
           localStorage.removeItem("accessToken");
           console.log("Error :()");
         }
@@ -43,7 +38,7 @@ const MyItems = () => {
       confirmButtonText: "Yeah",
     }).then((result) => {
       if (result.isConfirmed) {
-        const url = `http://localhost:5000/book/${id}`;
+        const url = `https://warm-lowlands-49144.herokuapp.com/book/${id}`;
         fetch(url, {
           method: "DELETE",
         })

@@ -1,7 +1,6 @@
 import React, { useRef, useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AiFillEyeInvisible, AiFillEye } from "react-icons/ai";
-import "./Login.css";
 import {
   useSendPasswordResetEmail,
   useSignInWithEmailAndPassword,
@@ -11,7 +10,7 @@ import SocialLogin from "../../components/Shared/SocialLogin/SocialLogin";
 import { toast } from "react-toastify";
 import Loader from "../../components/Shared/Loader/Loader";
 import PageTitle from "../../components/Shared/PageTitle/PageTitle";
-import axios from "axios";
+import useToken from "../../hooks/useToken";
 
 const Login = () => {
   const refEmail = useRef("");
@@ -23,9 +22,10 @@ const Login = () => {
     useSignInWithEmailAndPassword(auth);
   const [sendPasswordResetEmail, sending] = useSendPasswordResetEmail(auth);
   const [state, setState] = useState(false);
+  const [token] = useToken(user);
 
-  if (user) {
-    // navigate(from, { replace: true });
+  if (token) {
+    navigate(from, { replace: true });
   }
   if (error) {
     toast.error(`ERROR : ${error}`);
@@ -36,10 +36,8 @@ const Login = () => {
     const password = refPass.current.value;
     // console.log(email, password);
     await signInWithEmailAndPassword(email, password);
-    const { data } = await axios.post("http://localhost:5000/signIn", { email });
-    console.log(data);
-    localStorage.setItem("accessToken", data.accessToken);
-    navigate(from, { replace: true });
+    
+    // navigate(from, { replace: true });
   };
   const toggleBtn = () => {
     setState((prevState) => !prevState);

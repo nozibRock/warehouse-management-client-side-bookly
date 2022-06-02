@@ -9,7 +9,7 @@ import Blogs from "./Pages/Blogs/Blogs";
 import ProductDetail from "./components/ProductDetail/ProductDetail";
 import NotFound from "./Pages/NotFound/NotFound";
 import Login from "./Pages/Login/Login";
-import Signup from "./Pages/Signup/Signup"
+import Signup from "./Pages/Signup/Signup";
 import RequireAuth from "./components/Shared/RequireAuth/RequireAuth";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";

@@ -19,7 +19,7 @@ const AllProducts = () => {
       confirmButtonText: "Yes, delete it!",
     }).then((result) => {
       if (result.isConfirmed) {
-        const url = `http://localhost:5000/book/${id}`;
+        const url = `https://warm-lowlands-49144.herokuapp.com/book/${id}`;
         fetch(url, {
           method: "DELETE",
         })

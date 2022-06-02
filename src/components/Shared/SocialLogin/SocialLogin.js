@@ -4,9 +4,10 @@ import {
   useSignInWithGithub,
   useSignInWithGoogle,
 } from "react-firebase-hooks/auth";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import auth from "../../../firebase.init";
+import useToken from "../../../hooks/useToken";
 import Loader from "../Loader/Loader";
 
 const SocialLogin = () => {
@@ -16,12 +17,17 @@ const SocialLogin = () => {
     useSignInWithGithub(auth);
   const [signInWithFacebook, FacebookUser, FacebookLoading, FacebookError] =
     useSignInWithFacebook(auth);
+  const [token] = useToken(googleUser || githubUser || FacebookUser);
   const navigate = useNavigate();
+  const location = useLocation();
+  
+  let from = location.state?.from?.pathname || "/";
+
   if (googleError || githubError || FacebookError) {
     toast.error(`ERROR : ${googleError?.code}`);
   }
-  if (googleUser || githubUser || FacebookUser) {
-    navigate("/");
+  if (token) {
+    navigate(from, { replace: true });
   }
   return (
     <div>

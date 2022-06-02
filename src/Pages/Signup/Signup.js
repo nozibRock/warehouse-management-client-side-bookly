@@ -7,12 +7,14 @@ import SocialLogin from '../../components/Shared/SocialLogin/SocialLogin';
 import { toast } from "react-toastify";
 import Loader from '../../components/Shared/Loader/Loader'
 import PageTitle from '../../components/Shared/PageTitle/PageTitle';
+import useToken from '../../hooks/useToken';
 
 const Signup = () => {
     const [state, setState] = useState(false);
     const [agree, setAgree] = useState(false)
-    const [createUserWithEmailAndPassword,  loading, error] = useCreateUserWithEmailAndPassword(auth, { sendEmailVerification: true});
+    const [createUserWithEmailAndPassword, user, loading, error] = useCreateUserWithEmailAndPassword(auth, { sendEmailVerification: true});
     const [updateProfile, updating, updateError] = useUpdateProfile(auth);
+    const [token] = useToken(user);
     const location = useLocation();
     const navigate = useNavigate();
     let from = location.state?.from?.pathname || "/signIn";
@@ -21,6 +23,9 @@ const Signup = () => {
     };
     const navigateLogin = () => {
         navigate("/signIn");
+    }
+    if (token) {
+      navigate(from, { replace: true });
     }
     const handleRegister = async (event) => {
       event.preventDefault();
@@ -35,7 +40,7 @@ const Signup = () => {
       await updateProfile({ displayName: name });
       toast.success("Verification email Sent!");
       toast.info("Go check your Email and verify your email");
-      navigate(from, { replace: true });
+      // navigate(from, { replace: true });
     }
     return (
       <div className="bg-black">
