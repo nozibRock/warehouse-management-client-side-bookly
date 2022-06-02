@@ -24,21 +24,18 @@ const Login = () => {
   const [state, setState] = useState(false);
   const [token] = useToken(user);
 
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+    const email = refEmail.current.value;
+    const password = refPass.current.value;
+    await signInWithEmailAndPassword(email, password);
+  };
   if (token) {
     navigate(from, { replace: true });
   }
   if (error) {
     toast.error(`ERROR : ${error}`);
   }
-  const handleSubmit = async (event) => {
-    event.preventDefault();
-    const email = refEmail.current.value;
-    const password = refPass.current.value;
-    // console.log(email, password);
-    await signInWithEmailAndPassword(email, password);
-    
-    // navigate(from, { replace: true });
-  };
   const toggleBtn = () => {
     setState((prevState) => !prevState);
   };
